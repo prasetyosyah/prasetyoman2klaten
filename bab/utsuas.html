@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UTS & UAS</title>
+
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+
+    body {
+      font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      min-height:100vh;
+      background:linear-gradient(135deg, #6a11cb 0%, #2575fc 50%, #8ab6ff 100%);
+      overflow:hidden;
+      position:relative;
+      color:white;
+    }
+
+    /* Background shapes */
+    .bg-animation { position:fixed; inset:0; z-index:0; overflow:hidden; }
+    .floating-shape {
+      position:absolute; border-radius:50%;
+      background:rgba(255,255,255,0.15);
+      animation: float 20s infinite ease-in-out;
+    }
+    .shape1 { width:300px; height:300px; top:12%; left:10%; }
+    .shape2 { width:220px; height:220px; bottom:15%; right:15%; animation-delay:4s; }
+    .shape3 { width:170px; height:170px; top:55%; left:25%; animation-delay:7s; }
+
+    @keyframes float {
+      0%,100% { transform:translate(0,0); }
+      50% { transform:translate(30px,-20px); }
+    }
+
+    /* Stars */
+    .stars { position:fixed; inset:0; pointer-events:none; z-index:1; }
+    .star {
+      position:absolute; background:white; border-radius:50%;
+      opacity:0; animation:twinkle 3s infinite;
+    }
+    @keyframes twinkle {
+      0%,100% { opacity:0; }
+      50% { opacity:1; }
+    }
+
+    /* MAIN */
+    .main-container {
+      position:relative;
+      z-index:2;
+      max-width:900px;
+      margin:auto;
+      padding:20px;
+      text-align:center;
+    }
+
+    h1 {
+      font-size:2.5rem;
+      margin-bottom:10px;
+      text-shadow:0 0 10px rgba(0,0,0,0.3);
+    }
+    p.subtitle {
+      font-size:1.1rem;
+      opacity:0.9;
+      margin-bottom:35px;
+    }
+
+    /* Card links */
+    .link-card {
+      display:block;
+      padding:25px;
+      margin:15px auto;
+      background:rgba(255,255,255,0.18);
+      border:2px solid rgba(255,255,255,0.35);
+      border-radius:25px;
+      backdrop-filter:blur(15px);
+      width:85%;
+      text-decoration:none;
+      color:white;
+      transition:0.3s;
+      box-shadow:0 10px 25px rgba(0,0,0,0.25);
+    }
+
+    .link-card:hover {
+      transform:translateY(-6px);
+      background:rgba(255,255,255,0.3);
+      box-shadow:0 15px 30px rgba(0,0,0,0.3);
+    }
+
+    .link-title {
+      font-size:1.6rem;
+      font-weight:bold;
+    }
+
+    /* Back button */
+    .back-btn {
+      margin-top:30px;
+      display:inline-block;
+      padding:12px 22px;
+      background:rgba(255,255,255,0.15);
+      border:2px solid rgba(255,255,255,0.3);
+      border-radius:20px;
+      color:white;
+      text-decoration:none;
+      transition:0.3s;
+    }
+
+    .back-btn:hover {
+      background:rgba(255,255,255,0.25);
+      transform:translateX(-5px);
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- BACKGROUND -->
+  <div class="bg-animation">
+    <div class="floating-shape shape1"></div>
+    <div class="floating-shape shape2"></div>
+    <div class="floating-shape shape3"></div>
+  </div>
+  <div class="stars" id="stars"></div>
+
+  <div class="main-container">
+    
+    <h1>📘 UTS & UAS</h1>
+    <p class="subtitle">Silakan pilih link latihan, UTS, atau UAS pada daftar berikut</p>
+
+    <!-- LINK 1 -->
+    <a href="https://arifadamayanti.my.canva.site/uts-bahasa-arab-kelas-10 " 
+       target="_blank" 
+       class="link-card">
+      <div class="link-title">📝 Link UTS</div>
+      <p>Klik untuk membuka soal UTS.</p>
+    </a>
+
+    <!-- LINK 2 -->
+    <a href="https://arifadamayanti.my.canva.site/uas-bahasa-arab"
+       target="_blank"
+       class="link-card">
+      <div class="link-title">📚 Link UAS</div>
+      <p>Klik untuk membuka soal UAS.</p>
+    </a>
+
+    <!-- Tambah link sebanyak yang kamu mau -->
+    <!--
+    <a href="LINK_LAIN" class="link-card" target="_blank">
+      <div class="link-title">Nama Link</div>
+      <p>Deskripsinya di sini.</p>
+    </a>
+    -->
+
+    <a href="../menu_utama.html" class="back-btn">← Kembali ke Menu Utama</a>
+  </div>
+
+  <script>
+    const stars = document.getElementById("stars");
+    for (let i = 0; i < 80; i++) {
+      const s = document.createElement("div");
+      s.className = "star";
+      const size = Math.random() * 3 + 1;
+      s.style.width = size + "px";
+      s.style.height = size + "px";
+      s.style.top = Math.random() * 100 + "%";
+      s.style.left = Math.random() * 100 + "%";
+      s.style.animationDelay = Math.random() * 2 + "s";
+      stars.appendChild(s);
+    }
+  </script>
+
+</body>
+</html>
