@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu Utama</title>
+
+  <style>
+    * {
+      margin:0; padding:0; box-sizing:border-box;
+      font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      min-height:100vh;
+      background:linear-gradient(135deg, #3a0ca3 0%, #7209b7 40%, #f72585 100%);
+      position:relative;
+      overflow:hidden;
+      color:white;
+    }
+
+    /* Ornamen Pattern */
+    .pattern {
+      position:fixed;
+      inset:0;
+      background-image:url('https://www.transparenttextures.com/patterns/arabesque.png');
+      opacity:0.18;
+      z-index:0;
+    }
+
+    /* Floating Light Orbs */
+    .orb {
+      position:absolute;
+      border-radius:50%;
+      background:radial-gradient(circle, rgba(255,255,255,0.6), rgba(255,255,255,0));
+      animation:orbFloat 12s ease-in-out infinite;
+      filter:blur(20px);
+      opacity:0.6;
+    }
+
+    .orb1 { width:280px; height:280px; top:12%; left:10%; animation-delay:0s; }
+    .orb2 { width:200px; height:200px; bottom:15%; right:12%; animation-delay:3s; }
+    .orb3 { width:160px; height:160px; top:55%; left:28%; animation-delay:6s; }
+
+    @keyframes orbFloat {
+      0%,100% { transform:translate(0,0); }
+      50% { transform:translate(40px,-30px); }
+    }
+
+    /* Bintang */
+    .stars {
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      z-index:1;
+    }
+    .star {
+      position:absolute;
+      background:white;
+      border-radius:50%;
+      opacity:0;
+      animation:twinkle 3s infinite;
+    }
+    @keyframes twinkle { 0%,100%{opacity:0;} 50%{opacity:1;} }
+
+    /* Container */
+    .main-container {
+      position:relative;
+      z-index:3;
+      height:100vh;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+      padding:20px;
+    }
+
+    /* Card */
+    .intro-card {
+      background:rgba(255,255,255,0.15);
+      backdrop-filter:blur(20px);
+      border-radius:30px;
+      padding:50px 40px;
+      width:90%;
+      max-width:650px;
+      border:1px solid rgba(255,255,255,0.3);
+      box-shadow:0 25px 60px rgba(0,0,0,0.35);
+      animation:fadeIn 0.9s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity:0; transform:translateY(30px); }
+      to { opacity:1; transform:translateY(0); }
+    }
+
+    h1 {
+      font-size:3rem;
+      margin-bottom:15px;
+      text-shadow:0 3px 10px rgba(0,0,0,0.3);
+      font-weight:700;
+      letter-spacing:2px;
+    }
+
+    .subtitle {
+      font-size:1.3rem;
+      opacity:0.95;
+      margin-bottom:40px;
+      font-weight:300;
+    }
+
+    /* Tombol */
+    .btn-menu {
+      display:block;
+      margin:15px auto;
+      padding:15px 20px;
+      width:260px;
+      font-size:1.15rem;
+      border-radius:20px;
+      text-decoration:none;
+      color:white;
+      background:rgba(255,255,255,0.2);
+      border:2px solid rgba(255,255,255,0.3);
+      backdrop-filter:blur(10px);
+      position:relative;
+      overflow:hidden;
+      transition:0.3s;
+    }
+
+    .btn-menu:hover {
+      transform:translateY(-6px);
+      border-color:#ffe066;
+      box-shadow:0 0 20px #ffe066aa;
+      background:rgba(255,255,255,0.28);
+    }
+
+    /* Glow Line */
+    .btn-menu::before {
+      content:"";
+      position:absolute;
+      top:0; left:-100%;
+      width:100%; height:100%;
+      background:linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+      transition:0.5s;
+    }
+    .btn-menu:hover::before {
+      left:100%;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- Background Pattern -->
+  <div class="pattern"></div>
+
+  <!-- Floating Orbs -->
+  <div class="orb orb1"></div>
+  <div class="orb orb2"></div>
+  <div class="orb orb3"></div>
+
+  <!-- Stars -->
+  <div class="stars" id="stars"></div>
+
+  <div class="main-container">
+    <div class="intro-card">
+      <h1>📚 تعلم اللغة العربية</h1>
+      <p class="subtitle">Modul Digital Bahasa Arab Kelas 10 MAN 2 Klaten</p>
+
+      <a href="menu_utama.html" class="btn-menu">🚀 Mulai Belajar</a>
+      <a href="tentang_modul.html" class="btn-menu">📘 Tentang Modul</a>
+    </div>
+  </div>
+
+  <script>
+    const stars = document.getElementById("stars");
+    for (let i = 0; i < 80; i++) {
+      const s = document.createElement("div");
+      s.className = "star";
+      const size = Math.random() * 3 + 1;
+      s.style.width = size + "px";
+      s.style.height = size + "px";
+      s.style.top = Math.random() * 100 + "%";
+      s.style.left = Math.random() * 100 + "%";
+      s.style.animationDelay = Math.random() * 3 + "s";
+      stars.appendChild(s);
+    }
+  </script>
+
+</body>
+</html>
