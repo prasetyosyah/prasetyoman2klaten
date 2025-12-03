@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tentang Modul</title>
+
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+
+    body {
+      font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      min-height:100vh;
+      background:linear-gradient(135deg, #4facfe 0%, #00f2fe 50%, #8affd3 100%);
+      overflow:hidden;
+      color:white;
+      position:relative;
+    }
+
+    /* Floating shapes */
+    .bg-animation { position:fixed; inset:0; z-index:0; overflow:hidden; }
+    .shape {
+      position:absolute; border-radius:50%;
+      background:rgba(255,255,255,0.15);
+      animation:float 18s infinite ease-in-out;
+    }
+    .shape1 { width:300px; height:300px; top:12%; left:10%; }
+    .shape2 { width:220px; height:220px; bottom:10%; right:12%; animation-delay:4s; }
+    .shape3 { width:160px; height:160px; top:55%; left:25%; animation-delay:7s; }
+
+    @keyframes float {
+      0%,100% { transform:translate(0,0); }
+      50% { transform:translate(25px,-30px); }
+    }
+
+    /* Main container */
+    .main-container {
+      position:relative;
+      z-index:2;
+      max-width:900px;
+      margin:40px auto;
+      padding:20px;
+      text-align:center;
+    }
+
+    .content-box {
+      background:rgba(255,255,255,0.18);
+      border:2px solid rgba(255,255,255,0.3);
+      backdrop-filter:blur(15px);
+      padding:30px;
+      border-radius:25px;
+      box-shadow:0 10px 25px rgba(0,0,0,0.25);
+      animation:fadein 0.8s ease;
+    }
+
+    @keyframes fadein {
+      from { opacity:0; transform:translateY(20px); }
+      to { opacity:1; transform:translateY(0); }
+    }
+
+    h1 {
+      font-size:2.5rem;
+      margin-bottom:15px;
+    }
+
+    p {
+      font-size:1.2rem;
+      line-height:1.7rem;
+      margin-bottom:15px;
+      opacity:0.95;
+    }
+
+    .sub-title {
+      font-size:1.5rem;
+      margin-top:25px;
+      margin-bottom:5px;
+      font-weight:bold;
+    }
+
+    /* Back button */
+    .back-btn {
+      display:inline-block;
+      padding:12px 22px;
+      margin-top:25px;
+      background:rgba(255,255,255,0.2);
+      border:2px solid rgba(255,255,255,0.4);
+      border-radius:20px;
+      color:white;
+      text-decoration:none;
+      transition:0.3s;
+    }
+    .back-btn:hover {
+      background:rgba(255,255,255,0.35);
+      transform:translateX(-5px);
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- Background -->
+  <div class="bg-animation">
+    <div class="shape shape1"></div>
+    <div class="shape shape2"></div>
+    <div class="shape shape3"></div>
+  </div>
+
+  <div class="main-container">
+    <div class="content-box">
+
+      <h1>📘 Tentang Modul Pembelajaran</h1>
+
+      <p>
+        Aplikasi modul pembelajaran Bahasa Arab ini dirancang khusus untuk membantu peserta didik 
+        dalam memahami materi secara interaktif, menarik, dan mudah dipelajari. 
+        Modul ini dilengkapi dengan materi mufrodat, qowaid, qira'ah, istima', video pembelajaran, 
+        hingga latihan soal.
+      </p>
+
+      <p>
+        Modul ini digunakan pada jenjang pendidikan:
+        <br><b>🏫 Bahasa Arab Kelas 10 MAN 2 Klaten</b>
+        <br>atau lembaga pendidikan setingkatnya.
+      </p>
+
+      <div class="sub-title">🎯 Tujuan Pembuatan Modul</div>
+      <p>
+        • Memberikan pengalaman belajar yang modern dan interaktif  
+        • Mempermudah siswa memahami materi Bahasa Arab  
+        • Memperkuat hafalan mufrodat melalui gambar dan audio  
+        • Menyediakan latihan soal berbasis link yang mudah diakses  
+      </p>
+
+      <div class="sub-title">👨🏻‍💻 Tim Pengembang</div>
+      <p>
+        Aplikasi ini dikembangkan oleh:
+        <br><b></b>
+        <br><b></b>
+        <br><b></b>
+      </p>
+
+      <div class="sub-title">⚙️ Teknologi yang Digunakan</div>
+      <p>
+        • HTML5  
+        • CSS3 (Glassmorphism + Animasi)  
+        • JavaScript  
+        • Media gambar, audio, dan video  
+      </p>
+
+      <a href="menu_utama.html" class="back-btn">← Kembali ke Menu Utama</a>
+    </div>
+  </div>
+
+</body>
+</html>
